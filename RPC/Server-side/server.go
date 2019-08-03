@@ -58,7 +58,7 @@ func (m *Math) Minor(slice *[]int, res *int) error {
 
 func checkError(err error) {
 	if err != nil {
-		fmt.Printf("Error!! %v", err.Error())
+		fmt.Printf("Error! %v", err.Error())
 		os.Exit(1)
 	}
 }
@@ -76,7 +76,7 @@ func main() {
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
-			fmt.Printf("Error!! %v", err.Error())
+			fmt.Printf("Error! %v", err.Error())
 			continue
 		}
 		fmt.Printf("Conexión establecida con %v\n", conn.RemoteAddr())
