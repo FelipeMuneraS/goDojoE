@@ -70,17 +70,16 @@ func main() {
 	checkError(err)
 
 	listener, err := net.ListenTCP("tcp", tcpAddr)
-	defer listener.Close()
 	checkError(err)
-	fmt.Println("Running in port 3233")
-
+	defer listener.Close()
+	
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
 			fmt.Printf("Error!! %v", err.Error())
 			continue
 		}
-		fmt.Printf("Connection stablished from %v\n", conn.RemoteAddr())
+		fmt.Printf("Conexión establecida con %v\n", conn.RemoteAddr())
 		go rpc.ServeConn(conn)
 	}
 }
